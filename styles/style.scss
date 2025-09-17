@@ -3,7 +3,9 @@
 @import "./base/reset";
 @import "./base/mixin";
 @import "./header";
-
+@import "./_result.scss";
+@import "./recipe";
+@import "./basket";
 body {
   font-family: "Poppins", sans-serif;
   background-color: #fbda61;
@@ -19,4 +21,14 @@ body {
   min-height: 70vh;
   border-radius: 6px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  @include laptop {
+    grid-template-columns: 1fr !important;
+  }
+  @include mobile {
+    max-width: 500px;
+  }
 }
