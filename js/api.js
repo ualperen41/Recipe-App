@@ -1,7 +1,8 @@
 class API {
   constructor() {
     this.resaults = [];
-    this.recipe = [];
+    this.recipe = {};
+    this.ingredients = [];
   }
   async getResults(query) {
     const response = await fetch(
@@ -13,6 +14,18 @@ class API {
     console.log(data);
 
     this.resaults = data.recipes;
+  }
+
+  async getRecipe(id) {
+    const response = await fetch(
+      `https://forkify-api.herokuapp.com/api/get?rId=${id}`
+    );
+
+    const data = await response.json();
+
+    this.recipe = data.recipe;
+
+    this.ingredients = data.recipe.ingredients;
   }
 }
 
